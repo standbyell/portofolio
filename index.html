@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Vika Yelina Wati</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* --- COLOR PALETTE (DOMINANT BLACK, ORANGE & BLUE ACCENTS) --- */
+    :root {
+      --bg-black: #0a0a0c;
+      --card-black: #121216;
+      --card-border: #22222a;
+      
+      --accent-orange: #ff6b00;
+      --orange-hover: #ff8533;
+      --accent-blue: #00d2ff;
+      --blue-glow: rgba(0, 210, 255, 0.2);
+      
+      --text-bright: #ffffff;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-black);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .logo, .sub-title {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* --- NAVIGATION BAR --- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 10, 12, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      z-index: 1000;
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-bright);
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--accent-orange);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-blue);
+      background: rgba(0, 210, 255, 0.08);
+    }
+
+    /* --- SECTIONS LAYOUT --- */
+    section {
+      padding: 7rem 7% 4rem 7%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .sub-title {
+      font-size: 0.85rem;
+      color: var(--accent-orange);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .main-title {
+      font-size: 2.2rem;
+      color: var(--text-bright);
+      font-weight: 700;
+    }
+
+    /* --- DAFTAR ISI / QUICK NAVIGATOR (SLIDE ATAS) --- */
+    .toc-container {
+      margin-bottom: 2.5rem;
+    }
+
+    .toc-title {
+      font-size: 1.1rem;
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+    }
+
+    .toc-title i {
+      color: var(--accent-orange);
+    }
+
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .toc-card {
+      background: var(--card-black);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.2rem;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .toc-card:hover {
+      background: #18181e;
+      border-color: var(--accent-orange);
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px rgba(255, 107, 0, 0.15);
+    }
+
+    .toc-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 107, 0, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-orange);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .toc-card:hover .toc-icon {
+      background: var(--accent-orange);
+      color: #ffffff;
+    }
+
+    .toc-info h4 {
+      font-size: 0.95rem;
+      color: var(--text-bright);
+    }
+
+    .toc-info p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* --- MODERN BLACK CARDS --- */
+    .dark-card {
+      background: var(--card-black);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .dark-card:hover {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 20px var(--blue-glow);
+    }
+
+    /* --- SECTION 1: ABOUT --- */
+    .about-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .bio-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    .bio-text strong {
+      color: var(--accent-orange);
+    }
+
+    .profile-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
+      color: var(--accent-blue);
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.5rem;
+    }
+
+    .data-item {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: #18181e;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent-orange);
+    }
+
+    .data-item i {
+      font-size: 1.2rem;
+      color: var(--accent-blue);
+    }
+
+    .data-item label {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .data-item span {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-bright);
+    }
+
+    /* --- SECTION 2: EDUCATION & ORGANIZATIONS --- */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .edu-card {
+      background: var(--card-black);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .edu-card:hover {
+      border-color: var(--accent-orange);
+    }
+
+    .edu-year {
+      font-size: 0.8rem;
+      color: var(--accent-orange);
+      font-weight: 700;
+      background: rgba(255, 107, 0, 0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    .edu-school {
+      font-size: 1.1rem;
+      color: var(--text-bright);
+      margin: 0.6rem 0 0.2rem 0;
+    }
+
+    .edu-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* TAB ORGANISASI */
+    .org-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tab-btn {
+      background: var(--card-black);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--accent-orange);
+      color: #ffffff;
+      border-color: var(--accent-orange);
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--card-black);
+      border: 1px solid var(--card-border);
+      padding: 1.8rem;
+      border-radius: 14px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .org-role {
+      font-size: 1.15rem;
+      color: var(--accent-blue);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    /* --- SECTION 3: SKILLS --- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: var(--card-black);
+      border: 1px solid var(--card-border);
+      padding: 1.8rem;
+      border-radius: 16px;
+    }
+
+    .skill-category h3 {
+      margin-bottom: 1.2rem;
+      color: var(--accent-orange);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .skill-list {
+      list-style: none;
+    }
+
+    .skill-list li {
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: #18181e;
+      padding: 0.8rem;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent-blue);
+    }
+
+    .skill-list li strong {
+      color: var(--text-bright);
+      display: block;
+    }
+
+    /* --- SECTION 4: ACHIEVEMENTS --- */
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .achieve-card {
+      background: var(--card-black);
+      border: 1px solid var(--card-border);
+      padding: 1.4rem;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s;
+    }
+
+    .achieve-card:hover {
+      border-color: var(--accent-blue);
+    }
+
+    .achieve-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(0, 210, 255, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--accent-blue);
+      flex-shrink: 0;
+    }
+
+    .achieve-info h4 {
+      font-size: 1rem;
+      color: var(--text-bright);
+    }
+
+    .achieve-info p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* --- SECTION 5: CONTACT & FOOTER --- */
+    .contact-container {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.8rem;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--card-black);
+      border: 1px solid var(--card-border);
+      color: var(--text-bright);
+      padding: 0.7rem 1.4rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .contact-btn:hover {
+      background: var(--accent-orange);
+      border-color: var(--accent-orange);
+      color: #ffffff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: var(--bg-black);
+      border-top: 1px solid var(--card-border);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <div class="logo">VKYW<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">HOME</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#education">EDUCATION</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#achievements">ACHIEVEMENT</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <!-- BAGIAN 1: HOME (DAFTAR ISI ATAS + ABOUT) -->
+  <section id="about">
+    <div class="section-header">
+      <span class="sub-title">01 / HOME</span>
+      <h1 class="main-title">Latar Belakang & Perjalanan Akademik</h1>
+    </div>
+
+    <!-- DAFTAR ISI DI SLIDE ATAS -->
+    <div class="toc-container">
+      <div class="toc-title">
+        <i class="fa-solid fa-list-check"></i> DAFTAR ISI & NAVIGASI CEPAT
+      </div>
+      <div class="toc-grid">
+        <a href="#education" class="toc-card">
+          <div class="toc-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="toc-info">
+            <h4>01. Pendidikan</h4>
+            <p>Riwayat Sekolah & UNESA</p>
+          </div>
+        </a>
+        <a href="#education" class="toc-card">
+          <div class="toc-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="toc-info">
+            <h4>02. Organisasi</h4>
+            <p>OSIS, PMR, Pramuka, dll.</p>
+          </div>
+        </a>
+        <a href="#skills" class="toc-card">
+          <div class="toc-icon"><i class="fa-solid fa-code"></i></div>
+          <div class="toc-info">
+            <h4>03. Keahlian</h4>
+            <p>Hard Skills & Soft Skills</p>
+          </div>
+        </a>
+        <a href="#achievements" class="toc-card">
+          <div class="toc-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div class="toc-info">
+            <h4>04. Prestasi</h4>
+            <p>Penghargaan & Rekam Jejak</p>
+          </div>
+        </a>
+        <a href="#contact" class="toc-card">
+          <div class="toc-icon"><i class="fa-solid fa-paper-plane"></i></div>
+          <div class="toc-info">
+            <h4>05. Kontak</h4>
+            <p>Email & Media Sosial</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- KONTEN TENTANG & BIOGRAFI RINGKAS -->
+    <div class="about-content">
+      <div class="dark-card">
+        <p class="bio-text">
+          Saya adalah mahasiswa <strong>Pendidikan Teknologi Informasi</strong> di Universitas Negeri Surabaya yang antusias dalam dunia <em>web development</em> dan inovasi teknologi digital. Saya memiliki ketertarikan tinggi pada integrasi teknologi dan edukasi digital, serta terbiasa memecahkan masalah melalui logika pemrograman, perancangan aplikasi web yang responsif, dan pengelolaan basis data.
+        </p>
+        <p class="bio-text">
+          Selain fokus mengasah keahlian teknis dan eksplorasi <em>tools</em> modern, saya juga aktif berdedikasi dalam kegiatan akademik maupun organisasi. Dengan kombinasi pemahaman teknis di bidang TI dan kemampuan komunikasi yang baik, saya siap berkontribusi dalam proyek-proyek kolaboratif serta menciptakan solusi digital yang efisien dan berdampak positif.
+        </p>
+      </div>
+      
+      <div class="dark-card profile-card">
+        <h3>BIOGRAFI RINGKAS</h3>
+        <div class="data-item">
+          <i class="fa-solid fa-user"></i>
+          <div>
+            <label>NAMA LENGKAP</label>
+            <span>Vika Yelina Wati</span>
+          </div>
+        </div>
+        <div class="data-item">
+          <i class="fa-solid fa-id-card"></i>
+          <div>
+            <label>NIM</label>
+            <span>26050974005</span>
+          </div>
+        </div>
+        <div class="data-item">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <div>
+            <label>PROGRAM STUDI</label>
+            <span>Pendidikan Teknologi Informasi</span>
+          </div>
+        </div>
+        <div class="data-item">
+          <i class="fa-solid fa-building-columns"></i>
+          <div>
+            <label>FAKULTAS</label>
+            <span>Fakultas Teknik</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAGIAN 2: RIWAYAT PENDIDIKAN & AKTIVITAS KEORGANISASIAN -->
+  <section id="education">
+    <div class="section-header">
+      <span class="sub-title">1.1 | PENDIDIKAN FORMAL</span>
+      <h2 class="main-title">Riwayat Pendidikan</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <span class="edu-year">2026 – Sekarang</span>
+        <h3 class="edu-school">Universitas Negeri Surabaya</h3>
+        <p class="edu-desc">S1 Pendidikan Teknologi Informasi, Fakultas Teknik</p>
+      </div>
+      <div class="edu-card">
+        <span class="edu-year">2023 – 2026</span>
+        <h3 class="edu-school">SMA Negeri 3 Lamongan</h3>
+        <p class="edu-desc">Sekolah Menengah Atas</p>
+      </div>
+      <div class="edu-card">
+        <span class="edu-year">2020 – 2023</span>
+        <h3 class="edu-school">SMP Negeri 1 Sugio</h3>
+        <p class="edu-desc">Sekolah Menengah Pertama</p>
+      </div>
+      <div class="edu-card">
+        <span class="edu-year">2014 – 2020</span>
+        <h3 class="edu-school">SD Muhammadiyah Sugio</h3>
+        <p class="edu-desc">Sekolah Dasar</p>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 1.5rem;">
+      <span class="sub-title">1.2 | AKTIVITAS & KEORGANISASIAN</span>
+      <h2 class="main-title">Pengalaman Organisasi</h2>
+    </div>
+
+    <!-- TAB BUTTONS -->
+    <div class="org-tabs">
+      <button class="tab-btn active" onclick="openOrg(event, 'osis')">OSIS</button>
+      <button class="tab-btn" onclick="openOrg(event, 'pramuka')">Pramuka Garuda</button>
+      <button class="tab-btn" onclick="openOrg(event, 'paskib')">Paskibra</button>
+      <button class="tab-btn" onclick="openOrg(event, 'pmr')">PMR</button>
+      <button class="tab-btn" onclick="openOrg(event, 'ambalan')">Dewan Ambalan</button>
+      <button class="tab-btn" onclick="openOrg(event, 'padus')">Paduan Suara</button>
+      <button class="tab-btn" onclick="openOrg(event, 'tarunabumi')">Saka Tarunabumi</button>
+    </div>
+
+    <!-- TAB CONTENTS -->
+    <div id="osis" class="tab-content active">
+      <div class="org-role">Anggota Pengurus OSIS (2 Periode)</div>
+      <p class="bio-text">Aktif berkontribusi dalam kepengurusan OSIS SMP selama dua periode dengan memegang dua bidang berbeda. Pada periode pertama bertugas di bidang <strong>Seksi Bahasa Inggris</strong> untuk mengoordinasikan program peningkatan keterampilan berbahasa dan literasi siswa, serta pada periode berikutnya bertugas di <strong>Seksi 5</strong> yang berfokus pada pembinaan kreativitas, kesenian, atau kedisiplinan kesiswaan dalam menyukseskan berbagai kegiatan sekolah.</p>
+    </div>
+
+    <div id="pramuka" class="tab-content">
+      <div class="org-role">Anggota Pramuka Garuda (Penggalang & Penegak)</div>
+      <p class="bio-text">Meraih tingkatan kecakapan tertinggi dalam kepramukaan baik di tingkat Penggalang maupun Penegak. Teruji dalam kepemimpinan lapangan, pembentukan karakter disiplin, serta memiliki ketahanan dan kemampuan bekerja sama yang solid dalam tim lintas tingkatan.</p>
+    </div>
+
+    <div id="paskib" class="tab-content">
+      <div class="org-role">Anggota Paskibra</div>
+      <p class="bio-text">Mengemban tugas dalam baris-berbaris dan pengibaran bendera dengan tingkat ketepatan, fokus, serta koordinasi tim yang presisi. Melatih ketahanan mental, kerja sama erat, dan tanggung jawab penuh terhadap tugas sekolah maupun acara kenegaraan.</p>
+    </div>
+
+    <div id="pmr" class="tab-content">
+      <div class="org-role">Sekretaris PMR</div>
+      <p class="bio-text">Bertanggung jawab penuh atas administrasi organisasi, pencatatan agenda kegiatan, pembuatan laporan surat-menyurat, serta pendataan logistik medis untuk memastikan kelancaran setiap program kerja sosial dan kesehatan sekolah.</p>
+    </div>
+
+    <div id="ambalan" class="tab-content">
+      <div class="org-role">Bendahara Dewan Ambalan</div>
+      <p class="bio-text">Mengelola pencatatan keuangan dan anggaran dana untuk setiap kegiatan perkemahan maupun program kerja kepramukaan penegak secara transparan, akurat, dan terstruktur.</p>
+    </div>
+
+    <div id="padus" class="tab-content">
+      <div class="org-role">Bendahara & Vokalis (Sopran & Alto)</div>
+      <p class="bio-text">Menjabat sebagai pengelola keuangan organisasi sekaligus mempersembahkan harmoni vokal sebagai penyanyi pada bagian Sopran dan Alto dalam berbagai pementasan seni, acara resmi sekolah, maupun kompetisi paduan suara.</p>
+    </div>
+
+    <div id="tarunabumi" class="tab-content">
+      <div class="org-role">Anggota Saka Tarunabumi</div>
+      <p class="bio-text">Aktif berpartisipasi dalam kegiatan Satuan Karya Pramuka Taruna Bumi, memperluas wawasan dan keterampilan praktis di bidang lingkungan, pertanian, serta pengabdian masyarakat melalui kerja sama tim yang tangguh dan peduli alam.</p>
+    </div>
+  </section>
+
+  <!-- BAGIAN 3: KEAHLIAN -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="sub-title">02 / KEAHLIAN</span>
+      <h2 class="main-title">Kemampuan Teknis & Interpersonal</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <h3><i class="fa-solid fa-code"></i> Hard Skills (Teknis & IT)</h3>
+        <ul class="skill-list">
+          <li><strong>Web Development & Programming</strong> HTML, CSS, JavaScript dasar, serta logika pemrograman.</li>
+          <li><strong>Database & Information System</strong> Dasar-dasar basis data (SQL), perancangan sistem informasi, dan struktur data.</li>
+          <li><strong>Digital & Office Productivity</strong> Microsoft Office (Word, Excel, PowerPoint), Google Workspace, dan administrasi digital.</li>
+          <li><strong>Desain & Media Digital</strong> Canva / pembuatan media presentasi & publikasi konten digital.</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3><i class="fa-solid fa-users"></i> Soft Skills (Interpersonal)</h3>
+        <ul class="skill-list">
+          <li><strong>Manajemen Keuangan & Administrasi</strong> Teruji dalam pengelolaan kas, anggaran kegiatan, dan pembukuan transparan.</li>
+          <li><strong>Leadership & Teamwork</strong> Teruji melalui rekam jejak Pramuka Garuda, Paskibra, dan OSIS 2 periode.</li>
+          <li><strong>Komunikasi & Public Speaking</strong> Menyampaikan gagasan dengan jelas, koordinasi antarbidang, dan komunikasi interpersonal.</li>
+          <li><strong>Kedisiplinan & Ketahanan Kerja</strong> Memiliki manajemen waktu yang baik dan ketahanan tinggi di bawah tekanan.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAGIAN 4: ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-header">
+      <span class="sub-title">03 / PRESTASI</span>
+      <h2 class="main-title">Penghargaan & Pencapaian</h2>
+    </div>
+    <div class="achievement-grid">
+      <div class="achieve-card">
+        <div class="achieve-icon"><i class="fa-solid fa-award"></i></div>
+        <div class="achieve-info">
+          <h4>Pramuka Garuda (Penggalang & Penegak)</h4>
+          <p>Penghargaan Tingkat Kecakapan Tertinggi Kepramukaan.</p>
+        </div>
+      </div>
+      <div class="achieve-card">
+        <div class="achieve-icon"><i class="fa-solid fa-trophy"></i></div>
+        <div class="achieve-info">
+          <h4>Juara Lomba Paskibra (LKBB)</h4>
+          <p>Menjuarai berbagai kompetisi Lomba Keterampilan Baris-Berbaris tingkat daerah/regional.</p>
+        </div>
+      </div>
+      <div class="achieve-card">
+        <div class="achieve-icon"><i class="fa-solid fa-medal"></i></div>
+        <div class="achieve-info">
+          <h4>Juara 2 Orientasi Kepemimpinan PMR</h4>
+          <p>Penghargaan atas kemampuan kepemimpinan dan manajemen organisasi PMR.</p>
+        </div>
+      </div>
+      <div class="achieve-card">
+        <div class="achieve-icon"><i class="fa-solid fa-star"></i></div>
+        <div class="achieve-info">
+          <h4>Tim Terbaik 5 Besar Kompetisi PMR</h4>
+          <p>Membawa tim PMR meraih predikat Top 5 Tim Terbaik dalam ajang kompetisi PMR.</p>
+        </div>
+      </div>
+      <div class="achieve-card">
+        <div class="achieve-icon"><i class="fa-solid fa-music"></i></div>
+        <div class="achieve-info">
+          <h4>Perwakilan Paduan Suara Tingkat Provinsi</h4>
+          <p>Terpilih mewakili kontingen/sekolah sebagai vokalis dalam ajang kompetisi tingkat provinsi.</p>
+        </div>
+      </div>
+      <div class="achieve-card">
+        <div class="achieve-icon"><i class="fa-solid fa-user-check"></i></div>
+        <div class="achieve-info">
+          <h4>Pengurus Aktif OSIS 2 Periode</h4>
+          <p>Kontribusi berkelanjutan sebagai pengurus Seksi Bahasa Inggris & Seksi 5.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BAGIAN 5: CONTACT -->
+  <section id="contact">
+    <div class="contact-container dark-card">
+      <div class="section-header">
+        <span class="sub-title">04 / KONTAK</span>
+        <h2 class="main-title">Hubungi Saya</h2>
+      </div>
+      <p class="bio-text">Saya selalu terbuka untuk diskusi, kolaborasi proyek teknologi, maupun peluang kegiatan akademis dan keorganisasian. Mari terhubung!</p>
+      <div class="contact-links">
+        <a href="mailto:vikayelinawati123@gmail.com" class="contact-btn"><i class="fa-solid fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/vika-yelina-76ba57442?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="contact-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/standbyell" target="_blank" class="contact-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://www.instagram.com/hnyvika._?rpxt=YnMyZWRrdjZkdGlv&utm_source=qr" target="_blank" class="contact-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Vika Yelina Wati. All rights reserved. | Pendidikan Teknologi Informasi UNESA</p>
+  </footer>
+
+  <script>
+    function openOrg(evt, orgName) {
+      var i, tabcontent, tablinks;
+      
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+
+      tablinks = document.getElementsByClassName("tab-btn");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+
+      document.getElementById(orgName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+</body>
+</html>
